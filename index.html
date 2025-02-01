@@ -1,11 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Hello World</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Molly Zhang 张璨</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      background: #555;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      flex: 1;
+      padding: 1rem;
+      text-decoration: none;
+      color: #fff;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+    nav a:hover, nav a.active {
+      background: #777;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>My new GitHub Pages site is live!</p>
+  <header>
+    <h1>Molly Zhang 张璨</h1>
+  </header>
+
+  <nav>
+    <a href="#about" class="active" onclick="switchTab(event, 'about')">About Me</a>
+    <a href="#research" onclick="switchTab(event, 'research')">Research</a>
+    <a href="#meditation" onclick="switchTab(event, 'meditation')">Meditation</a>
+  </nav>
+
+  <div class="container">
+    <section id="about" class="tab-content active">
+      <h2>About Me</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac sem quis sapien consectetur vehicula. Vivamus vitae urna in ipsum mollis tincidunt. Suspendisse potenti.</p>
+    </section>
+
+    <section id="research" class="tab-content">
+      <h2>Research</h2>
+      <p>Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ut ante eu nulla accumsan convallis.</p>
+    </section>
+
+    <section id="meditation" class="tab-content">
+      <h2>Meditation</h2>
+      <p>Praesent ac sapien sit amet urna cursus vehicula. Curabitur eget sem nec erat commodo placerat. Aliquam erat volutpat. Maecenas ullamcorper risus nec facilisis bibendum.</p>
+    </section>
+  </div>
+
+  <script>
+    function switchTab(event, tabId) {
+      event.preventDefault();
+      // Remove active class from all nav links and tab contents
+      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      
+      // Add active class to the selected tab link and corresponding content
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
+
